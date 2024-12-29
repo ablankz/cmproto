@@ -1,1 +1,2 @@
-# flex-proto
+# Proto Common Type
+

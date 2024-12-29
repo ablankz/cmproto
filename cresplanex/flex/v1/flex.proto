@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package cresplanex.flex.v1;
+
+import "cresplanex/nullable/v1/nullable.proto";
+
+message Flex {
+  oneof flex {
+    string string_value = 1;
+    int32 int_value = 2;
+    int64 long_value = 3;
+    float float_value = 4;
+    double double_value = 5;
+    bool bool_value = 6;
+    bytes bytes_value = 7;
+    Flex flex_value = 8;
+    FlexArray array_value = 9;
+    FlexMap map_value = 10;
+    cresplanex.nullable.v1.NullableString nullable_string_value = 11;
+    cresplanex.nullable.v1.NullableInt32 nullable_int_value = 12;
+    cresplanex.nullable.v1.NullableInt64 nullable_long_value = 13;
+    cresplanex.nullable.v1.NullableFloat nullable_float_value = 14;
+    cresplanex.nullable.v1.NullableDouble nullable_double_value = 15;
+    cresplanex.nullable.v1.NullableBool nullable_bool_value = 16;
+    cresplanex.nullable.v1.NullableBytes nullable_bytes_value = 17;
+    NullableFlex nullable_flex_value = 18;
+    NullableFlexArray nullable_array_value = 19;
+    NullableFlexMap nullable_map_value = 20;
+  }
+}
+
+message NullableFlex {
+  bool has_value = 1;
+  Flex value = 2;
+}
+
+message FlexArray {
+  repeated Flex flex = 1;
+}
+
+message NullableFlexArray {
+  bool has_value = 1;
+  FlexArray value = 2;
+}
+
+message FlexMap {
+  map<string, Flex> flex = 1;
+}
+
+message NullableFlexMap {
+  bool has_value = 1;
+  FlexMap value = 2;
+}

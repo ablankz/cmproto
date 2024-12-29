@@ -1,0 +1,12 @@
+version: v2
+modules:
+  - path: .
+    name: buf.build/cresplanex/types
+lint:
+  use:
+    - STANDARD
+breaking:
+  use:
+    - FILE
+deps:
+  - buf.build/protocolbuffers/wellknowntypes:v28.3
