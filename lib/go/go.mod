@@ -1,10 +1,7 @@
-module github.com/ablankz/common-proto
+module github.com/ablankz/common-proto/lib/go
 
 go 1.23.3
 
-require (
-	buf.build/gen/go/cresplanex/types/protocolbuffers/go v1.36.1-20241229081036-5cfa13fd79a9.1 // indirect
-	google.golang.org/protobuf v1.36.1 // indirect
-)
+require buf.build/gen/go/cresplanex/types/protocolbuffers/go v1.36.1-20241229081036-5cfa13fd79a9.1
 
-replace github.com/ablankz/common-proto => ./lib/go
+require google.golang.org/protobuf v1.36.1 // indirect
