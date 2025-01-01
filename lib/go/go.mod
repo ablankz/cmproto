@@ -1,4 +1,4 @@
-module github.com/ablankz/common-proto/lib/go
+module github.com/ablankz/common-proto
 
 go 1.23.3
 
