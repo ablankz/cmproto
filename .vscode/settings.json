@@ -1,4 +1,0 @@
-{
-    "java.configuration.updateBuildConfiguration": "interactive",
-    "go.toolsEnvVars": {"GO111MODULE": "on"},
-}
