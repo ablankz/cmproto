@@ -1,4 +1,4 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
-    "go.gopath": "/lib/go"
+    "go.toolsEnvVars": {"GO111MODULE": "on"},
 }
