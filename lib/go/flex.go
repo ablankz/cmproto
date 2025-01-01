@@ -228,3 +228,43 @@ func NewNullableFlex(obj any) (*flex.NullableFlex, error) {
 	}
 	return &flex.NullableFlex{HasValue: true, Value: f}, nil
 }
+
+func NewFlexArray(obj []any) (*flex.FlexArray, error) {
+	arrayBuilder := &flex.FlexArray{}
+	for _, val := range obj {
+		f, err := NewFlex(val)
+		if err != nil {
+			return nil, err
+		}
+		arrayBuilder.Flex = append(arrayBuilder.Flex, f)
+	}
+	return arrayBuilder, nil
+}
+
+func NewFlexMap(obj map[string]any) (*flex.FlexMap, error) {
+	mapBuilder := &flex.FlexMap{}
+	for k, val := range obj {
+		f, err := NewFlex(val)
+		if err != nil {
+			return nil, err
+		}
+		mapBuilder.Flex[k] = f
+	}
+	return mapBuilder, nil
+}
+
+func NewNullableFlexArray(obj []any) (*flex.NullableFlexArray, error) {
+	arrayBuilder, err := NewFlexArray(obj)
+	if err != nil {
+		return nil, err
+	}
+	return &flex.NullableFlexArray{HasValue: true, Value: arrayBuilder}, nil
+}
+
+func NewNullableFlexMap(obj map[string]any) (*flex.NullableFlexMap, error) {
+	mapBuilder, err := NewFlexMap(obj)
+	if err != nil {
+		return nil, err
+	}
+	return &flex.NullableFlexMap{HasValue: true, Value: mapBuilder}, nil
+}
